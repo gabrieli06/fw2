@@ -6,13 +6,13 @@ import { useState } from "react";
 export default function Promessa(){
     const [prometido, setPrometido] = useState("")
     setTimeout(() => {
-        setPrometido(" é uma divida ")
+        setPrometido(" tem que pagar ")
         document.title=" promessa é divida "
     }, 2000);
     return <>
     <Menu/>
     <Container>
-        Promessa{prometido==="" ? "<carregando>" : prometido}
+        Promessa{prometido==="" ? <img src="./gif.gif" width={100} height={40}/> : prometido}
     </Container>
     <Footer />
     </>
