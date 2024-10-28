@@ -1,14 +1,18 @@
 import { Container } from "react-bootstrap";
 import Menu from "./component/navbar";
 import Footer from "./component/footer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Promessa(){
     const [prometido, setPrometido] = useState("")
-    setTimeout(() => {
-        setPrometido(" tem que pagar ")
-        document.title=" promessa é divida "
-    }, 2000);
+    useEffect(() => {
+        setTimeout(async () => {
+            const altera =  await saoLonguinho(" olá texto novo ")
+             document.title=" promessa é divida "
+            setPrometido(altera);
+        }, 4000);
+    });
+    
     return <>
     <Menu/>
     <Container>
@@ -17,3 +21,10 @@ export default function Promessa(){
     <Footer />
     </>
 };
+function saoLonguinho(texto){
+    return new Promise ((resolva) =>
+   setTimeout(() => {
+       resolva(texto);
+    }, 1000)
+  );
+}
